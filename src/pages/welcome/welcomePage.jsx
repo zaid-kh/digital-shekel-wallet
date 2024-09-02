@@ -38,7 +38,7 @@ const WelcomePage = () => {
           text={"Open Existing Wallet"}
           bg={"#50924E"}
           hoverbg={"#396d37"}
-          to={"/wallet"}
+          to={"/main"}
         ></DynamicButton>
         <DynamicButton
           text={"Create New Wallet"}
