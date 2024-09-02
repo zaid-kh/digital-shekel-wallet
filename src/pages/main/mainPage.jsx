@@ -32,18 +32,21 @@ function MainPage() {
             hoverbg={"#396d37"}
           ></DynamicButton>
           <DynamicButton
+            to={"/defund"}
             className="main-screen-buttons"
             text={"Defund"}
             bg={"#ff0005"}
             hoverbg={"#d60000"}
           ></DynamicButton>
           <DynamicButton
+            to={"/transfer"}
             className="main-screen-buttons"
             text={"Transfer"}
             bg={"#4F7AE3"}
             hoverbg={"#2358DC"}
           ></DynamicButton>
           <DynamicButton
+            to={"/lock"}
             className="main-screen-buttons"
             text={"Lock"}
             bg={"#F7B801"}

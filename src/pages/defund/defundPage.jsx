@@ -4,11 +4,11 @@ import ScreenTitle from "../../components/texts/screenTitle";
 import DynamicInput from "../../components/inputs/dynamicInput";
 import DynamicButton from "../../components/buttons/DynamicButton";
 
-const FundPage = () => {
+const DefundPage = () => {
   const [amount, setAmount] = useState("");
   const [amountError, setAmountError] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardNumberError, setCardNumberError] = useState("");
+  const [bankAccount, setBankAccount] = useState("");
+  const [bankAccountError, setBankAccountError] = useState("");
 
   const validateAmount = () => {
     const parsedAmount = parseFloat(amount);
@@ -22,15 +22,15 @@ const FundPage = () => {
     }
   };
 
-  const validateCardNumber = () => {
-    const parsedCardNumber = cardNumber.replace(/\D/g, ""); // Remove non-numeric characters
+  const validateBankAccount = () => {
+    const parsedBankAccount = bankAccount.replace(/\D/g, ""); // Remove non-numeric characters
 
-    if (parsedCardNumber.length !== 16) {
-      setCardNumberError("Card Number must be 16 digits");
-    } else if (cardNumber.trim() === "") {
-      setCardNumberError("Card Number cannot be empty");
+    if (parsedBankAccount.trim() === "") {
+      setBankAccountError("Bank Account cannot be empty");
+    } else if (parsedBankAccount.length < 8 || parsedBankAccount.length > 12) {
+      setBankAccountError("Bank Account must be between 8 and 12 digits");
     } else {
-      setCardNumberError(""); // Clear error if valid
+      setBankAccountError(""); // Clear error if valid
     }
   };
 
@@ -39,14 +39,14 @@ const FundPage = () => {
     setAmountError(""); // Clear error on change
   };
 
-  const handleCardNumberChange = (e) => {
-    setCardNumber(e.target.value);
-    setCardNumberError(""); // Clear error on change
+  const handleBankAccountChange = (e) => {
+    setBankAccount(e.target.value);
+    setBankAccountError(""); // Clear error on change
   };
 
   return (
     <MainContainer>
-      <ScreenTitle text={"Fund Screen"} />
+      <ScreenTitle text={"Defund Screen"} />
       <DynamicInput
         type="text"
         placeholder="Amount"
@@ -58,20 +58,20 @@ const FundPage = () => {
       />
       <DynamicInput
         type="text"
-        placeholder="Card Number"
-        value={cardNumber}
-        onChange={handleCardNumberChange}
-        onBlur={validateCardNumber}
-        error={!!cardNumberError}
-        errorMessage={cardNumberError}
+        placeholder="Bank Account"
+        value={bankAccount}
+        onChange={handleBankAccountChange}
+        onBlur={validateBankAccount}
+        error={!!bankAccountError}
+        errorMessage={bankAccountError}
       />
       <DynamicButton
-        text={"Buy Digital Shekel"}
-        bg={"#50924E"}
-        hoverbg={"#396d37"}
+        text={"Withdraw Digital Shekel"}
+        bg={"#ff0005"}
+        hoverbg={"#d60000"}
       />
     </MainContainer>
   );
 };
 
-export default FundPage;
+export default DefundPage;

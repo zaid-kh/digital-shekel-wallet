@@ -6,19 +6,26 @@ import MainContainer from "../../components/containers/mainContainer.jsx";
 import DynamicInput from "../../components/inputs/dynamicInput.jsx";
 
 const WelcomePage = () => {
-  const [walletId, setwalletId] = useState("");
-  const [walletIdError, setwalletIdError] = useState("");
+  const [walletId, setWalletId] = useState("");
+  const [walletIdError, setWalletIdError] = useState("");
 
-  const validatewalletId = () => {
-    //! Validation logic could be expanded upon further inquries
-    if (typeof walletId !== "string") {
-      setwalletIdError("walletId must be a string");
-    } else if (walletId.trim() === "") {
-      setwalletIdError("walletId cannot be empty");
+  const validateWalletId = () => {
+    const parsedWalletId = walletId.replace(/\D/g, ""); // Remove non-numeric characters
+
+    if (parsedWalletId.trim() === "") {
+      setWalletIdError("Wallet ID cannot be empty");
+    } else if (parsedWalletId.length < 6 || parsedWalletId.length > 12) {
+      setWalletIdError("Wallet ID must be between 6 and 12 digits");
     } else {
-      setwalletIdError("");
+      setWalletIdError(""); // Clear error if valid
     }
   };
+
+  const handleWalletIdChange = (e) => {
+    setWalletId(e.target.value);
+    setWalletIdError(""); // Clear error on change
+  };
+
   return (
     <>
       <MainContainer>
@@ -28,9 +35,9 @@ const WelcomePage = () => {
           type="text"
           placeholder="Enter your wallet ID"
           value={walletId}
-          onChange={(e) => setwalletId(e.target.value)}
-          onBlur={validatewalletId}
-          error={(!!walletIdError).toString()}
+          onChange={handleWalletIdChange}
+          onBlur={validateWalletId}
+          error={!!walletIdError}
           errorMessage={walletIdError}
         />
 
@@ -39,12 +46,12 @@ const WelcomePage = () => {
           bg={"#50924E"}
           hoverbg={"#396d37"}
           to={"/main"}
-        ></DynamicButton>
+        />
         <DynamicButton
           text={"Create New Wallet"}
           hoverbg={"#2358DC"}
           bg={"#4F7AE3"}
-        ></DynamicButton>
+        />
       </MainContainer>
     </>
   );

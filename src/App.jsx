@@ -4,6 +4,7 @@ import "./App.css";
 import WelcomePage from "./pages/welcome/welcomePage.jsx";
 import MainPage from "./pages/main/mainPage.jsx";
 import FundPage from "./pages/fund/fundPage.jsx";
+import DefundPage from "./pages/defund/defundPage.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/main" element={<MainPage />} />
           <Route path="/fund" element={<FundPage />} />
+          <Route path="/defund" element={<DefundPage />} />
           <Route path="/wallet" element={"wallet"} />
           <Route path="/transactions" element={"transactions"} />
 
