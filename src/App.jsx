@@ -5,6 +5,7 @@ import WelcomePage from "./pages/welcome/welcomePage.jsx";
 import MainPage from "./pages/main/mainPage.jsx";
 import FundPage from "./pages/fund/fundPage.jsx";
 import DefundPage from "./pages/defund/defundPage.jsx";
+import TransferPage from "./pages/transfer/transferPage.jsx";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           <Route path="/main" element={<MainPage />} />
           <Route path="/fund" element={<FundPage />} />
           <Route path="/defund" element={<DefundPage />} />
+          <Route path="/transfer" element={<TransferPage />} />
+          <Route path="/lock" element={"lock"} />
+          <Route path="/addressbook" element={"address book"} />
           <Route path="/wallet" element={"wallet"} />
           <Route path="/transactions" element={"transactions"} />
 
