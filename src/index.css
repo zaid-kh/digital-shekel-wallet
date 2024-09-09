@@ -1,6 +1,61 @@
+/* define app colors */
+:root {
+  --main: #01132F;
+  --typography-text-color: #F8F8F8;
+}
+
 /* reset styling */
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+  height: 100%;
+  overflow: hidden;
+
+  * {
+    color: var(--typography-text-color);
+  }
+}
+h1 {
+  margin: 0;
+  line-height: 43.2px;
+} 
+
+#app-container {
+  background-color: var(--main);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#header {
+  display: flex;
+  padding: 40px 120px;
+  justify-content: space-between;
+
+  [name=logo] {
+    display: flex;
+    text-decoration: none;
+   
+    img {
+      margin-inline-end: 16px;
+    }
+  }
+}
+
+#navigator {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#navigator-container {
+  background-color: transparent;
+  /* box-shadow: inset 0 0 4px 0 #eee; */
+  border-radius: 16px;
+  width: 65vh;
+  height: 80vh;
+  /* border-radius: 16px; */
+  display: block;
+  overflow: hidden;
 }
