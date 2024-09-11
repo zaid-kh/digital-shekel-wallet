@@ -6,6 +6,7 @@ import MainPage from "./pages/main/mainPage.jsx";
 import FundPage from "./pages/fund/fundPage.jsx";
 import DefundPage from "./pages/defund/defundPage.jsx";
 import TransferPage from "./pages/transfer/transferPage.jsx";
+import DashboardPage from "./pages/dashboard";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <a name="logo" href="/">
           <img src="/src/assets/logo.svg" alt="Logo" />
 
-          <h1>DILS wallet</h1>
+          <h1 className="text-secondary">DILS wallet</h1>
         </a>
 
         <div name="user-info"></div>
@@ -33,6 +34,7 @@ function App() {
               <Route path="/addressbook" element={"address book"} />
               <Route path="/wallet" element={"wallet"} />
               <Route path="/transactions" element={"transactions"} />
+              <Route path="/dashboard" element={<DashboardPage />} />
 
               <Route path="*" element={"no such route"} />
             </Routes>
