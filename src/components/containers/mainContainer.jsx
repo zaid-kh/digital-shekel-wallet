@@ -4,19 +4,13 @@ import styled from "styled-components";
 const StyledMainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  background-color: #f3f3f3;
-  color: #333;
-  font-family: sans-serif;
-  gap: 20px;
 `;
 
 const MainContainer = ({ children }) => {
   return (
-    <StyledMainContainer id="main-container">{children}</StyledMainContainer>
+    <StyledMainContainer id="main-container" className="gap-10">{children}</StyledMainContainer>
   );
 };
 
